@@ -14,4 +14,5 @@
 !.envrc
 !shell.nix
 
-.vscode/settings.json
+!.github
+!.github/**
