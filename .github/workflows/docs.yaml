@@ -1,0 +1,26 @@
+name: Generate Documentation
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+# permissions:
+#   contents: write
+
+jobs:
+  goreadme:
+    runs-on: ubuntu-latest
+
+    steps:
+  
+    - name: Check out repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Update readme according to Go doc
+      uses: posener/goreadme@master
+      with:
+        # enable goreadme to comment on PRs.
+        github-token: '${{ secrets.GITHUB_TOKEN }}'
+        import-path: "redacted.go"
